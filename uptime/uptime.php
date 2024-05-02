@@ -76,7 +76,7 @@ if ($httpCode === 500) {
         $row = $result->fetch_assoc();
         $previousContentLength = $row['content_length'];
     
-        if ($contentLength !== $previousContentLength) {
+        if (intval($contentLength) !== intval($previousContentLength)) {
             // Send an email notification for content length change
             $to = 'your@email.com'; // Replace with your email address
             $subject = 'Content Change Detected - '.$targetUrl;
